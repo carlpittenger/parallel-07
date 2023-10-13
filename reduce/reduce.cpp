@@ -68,7 +68,7 @@ void generateReduceData(int *arr, size_t n);
 
   auto reduction = 0;
 
-#pragma omp parallel for default(none) shared(n, arr) num_threads(num_threads) \
+#pragma omp parallel for default(none) num_threads(num_threads) \
     schedule(runtime) reduction(+ : reduction)
   for (auto i = 0; i < n; ++i) {
     reduction += arr[i];

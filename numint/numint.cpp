@@ -93,7 +93,7 @@ using fn_type = float (*)(float x, int intensity);
 
   auto sum = 0.0;
 
-#pragma omp parallel for default(none) shared(n, a, b, intensity, f)           \
+#pragma omp parallel for default(none) shared(f)           \
     num_threads(num_threads) schedule(runtime) reduction(+ : sum)
   for (auto i = 0; i < n; ++i) {
     const auto x = a + (i + 0.5) * (b - a) / n;
